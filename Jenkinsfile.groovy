@@ -1,5 +1,6 @@
 properties(
-	[parameters(
+	[buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([cron('H/15 * * * *')]),
+    parameters(
 		[choice(choices: 
 			[
                 'dev', 
@@ -42,7 +43,7 @@ node {
     stage("destroy"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
-            sh "make d"
+            sh "make destroy"
         }
 	}
     stage("Clean"){
