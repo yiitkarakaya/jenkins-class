@@ -30,6 +30,5 @@ node {
 		echo "hello"
 	}
 }
-pi
 
 
