@@ -16,7 +16,8 @@ node {
 }
 	stage("Stage2"){
         ws("infrastructure/vpc/"){
-            sh "terraform plan"
+            // sh "terraform plan"
+            echo "ehll"
         }
 		
 }
