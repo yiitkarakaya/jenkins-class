@@ -44,6 +44,7 @@ node {
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
             sh "make d"
+            
         }
 	}
     stage("Clean"){
