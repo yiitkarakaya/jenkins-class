@@ -15,7 +15,7 @@ node {
 		git url: "https://github.com/farrukh90/infrastructure.git"
 }
 	stage("Stage2"){
-        ws("infrastructure"){
+        ws("infrastructure/vpc/"){
             sh "terraform plan"
         }
 		
