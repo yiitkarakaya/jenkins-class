@@ -1,15 +1,15 @@
-properties(
-	[parameters(
-		[choice(choices: 
-			[
-                'dev', 
-                'qa', 
-                'stage', 
-                'prod'
-            ], 
-		description: 'Which Environment should we deploy?', 
-		name: 'ENVIRONMENT')])]
-)
+// properties(
+// 	[parameters(
+// 		[choice(choices: 
+// 			[
+//                 'dev', 
+//                 'qa', 
+//                 'stage', 
+//                 'prod'
+//             ], 
+// 		description: 'Which Environment should we deploy?', 
+// 		name: 'ENVIRONMENT')])]
+// )
 node {
 	stage("Stage1"){
 		git url: "https://github.com/farrukh90/infrastructure.git"
