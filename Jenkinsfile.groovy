@@ -2,11 +2,10 @@ properties(
 	[parameters(
 		[choice(choices: 
 			[
-                'v0.1', 
-                'v0.2', 
-                'v0.3', 
-                'v0.4', 
-                'v0.5'
+                'dev', 
+                'qa', 
+                'stage', 
+                'prod'
             ], 
 		description: 'Which Environment should we deploy?', 
 		name: 'ENVIRONMENT')])]
