@@ -15,11 +15,7 @@ node {
 		git 'https://github.com/farrukh90/infrastructure.git'
 }
 	stage("Stage2"){
-        ws("infrastructure/vpc/"){
-            // sh "terraform plan"
-            echo "ehll"
-        }
-		
+       echo "hello"
 }
 	stage("Stage3"){
 		echo "hello"
