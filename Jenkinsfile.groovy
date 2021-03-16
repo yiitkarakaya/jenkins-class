@@ -22,7 +22,7 @@ node {
         }
     }
     stage("Stage3"){
-        echo "hello"
+        sh "make p a"
     }
     stage("Stage4"){
         echo "hello"
