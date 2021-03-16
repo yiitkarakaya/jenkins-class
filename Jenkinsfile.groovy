@@ -12,7 +12,7 @@ properties(
 )
 node {
 	stage("Stage1"){
-		git "https://github.com/farrukh90/infrastructure.git"
+		git url: "https://github.com/farrukh90/infrastructure.git"
 }
 	stage("Stage2"){
 		echo "hello"
@@ -27,3 +27,6 @@ node {
 		echo "hello"
 	}
 }
+
+
+
