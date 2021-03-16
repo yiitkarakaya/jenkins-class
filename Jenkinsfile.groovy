@@ -4,7 +4,7 @@ node {
     }
     stage("Stage2"){
         ws("workspace/inf/vpc"){
-            sh "terraform plan"
+            sh "terraform init"
         }
     }
     stage("Stage3"){
