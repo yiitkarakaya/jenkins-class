@@ -17,7 +17,8 @@ node {
     }
     stage("Stage2"){
         ws("workspace/inf/vpc"){
-            sh "terraform init"
+            sh "export ENVIRONMENT=${ENVIRONMENT}"
+            sh "make i"
         }
     }
     stage("Stage3"){
