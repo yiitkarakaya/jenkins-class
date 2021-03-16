@@ -3,7 +3,9 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
     }
     stage("Stage2"){
-        echo "hello"
+        ws("vpc"){
+            sh "terraform plan"
+        }
     }
     stage("Stage3"){
         echo "hello"
