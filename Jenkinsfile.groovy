@@ -1,24 +1,43 @@
-// properties(
-// 	[parameters(
-// 		[choice(choices: 
-// 			[
-//                 'dev', 
-//                 'qa', 
-//                 'stage', 
-//                 'prod'
-//             ], 
-// 		description: 'Which Environment should we deploy?', 
-// 		name: 'ENVIRONMENT')])]
-// )
+// // properties(
+// // 	[parameters(
+// // 		[choice(choices: 
+// // 			[
+// //                 'dev', 
+// //                 'qa', 
+// //                 'stage', 
+// //                 'prod'
+// //             ], 
+// // 		description: 'Which Environment should we deploy?', 
+// // 		name: 'ENVIRONMENT')])]
+// // )
+// node {
+// 	stage("Stage1"){
+// 		git url: "https://github.com/farrukh90/infrastructure.git"
+// }
+// 	stage("Stage2"){
+//         ws("infrastructure/vpc/"){
+//             sh "terraform plan"
+//         }
+		
+// }
+// 	stage("Stage3"){
+// 		echo "hello"
+// }
+// 	stage("Stage4"){
+// 		echo "hello"
+// }
+// 	stage("Stage5"){
+// 		echo "hello"
+// 	}
+// }
+
+
 node {
 	stage("Stage1"){
-		git url: "https://github.com/farrukh90/infrastructure.git"
+		git 'https://github.com/farrukh90/packer.git'
 }
 	stage("Stage2"){
-        ws("infrastructure/vpc/"){
-            sh "terraform plan"
-        }
-		
+		echo "hello"
 }
 	stage("Stage3"){
 		echo "hello"
@@ -30,5 +49,3 @@ node {
 		echo "hello"
 	}
 }
-
-
