@@ -15,7 +15,9 @@ node {
 		sh 'git clone https://github.com/farrukh90/infrastructure.git'
 }
 	stage("Stage2"){
-		echo "hello"
+		workspace("infrastructure/vpc"){
+            sh "terraform plan"
+        }
 }
 	stage("Stage3"){
 		echo "hello"
