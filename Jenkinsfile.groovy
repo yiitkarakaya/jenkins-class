@@ -24,11 +24,14 @@ node {
     stage("Stage3"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
-            sh "make p a"
+            sh "make p"
         }
     }
     stage("Stage4"){
-        echo "hello"
+         ws("workspace/inf/vpc"){
+            sh "export ENVIRONMENT=${ENVIRONMENT}"
+            sh "make a"
+        }
     }
     stage("Stage5"){
         echo "hello"
