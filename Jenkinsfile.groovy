@@ -15,7 +15,10 @@ node {
 		git url: "https://github.com/farrukh90/infrastructure.git"
 }
 	stage("Stage2"){
-		sh "terraform plan"
+        workspace("infrastructure"){
+            sh "terraform plan"
+        }
+		
 }
 	stage("Stage3"){
 		echo "hello"
