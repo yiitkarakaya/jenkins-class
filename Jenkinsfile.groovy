@@ -12,12 +12,10 @@ properties(
 )
 node {
 	stage("Stage1"){
-		sh 'git clone https://github.com/farrukh90/infrastructure.git'
+		git "https://github.com/farrukh90/infrastructure.git"
 }
 	stage("Stage2"){
-		workspace("infrastructure/vpc"){
-            sh "terraform plan"
-        }
+		echo "hello"
 }
 	stage("Stage3"){
 		echo "hello"
