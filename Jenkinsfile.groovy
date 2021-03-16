@@ -10,34 +10,15 @@
 // // 		description: 'Which Environment should we deploy?', 
 // // 		name: 'ENVIRONMENT')])]
 // // )
-// node {
-// 	stage("Stage1"){
-// 		git url: "https://github.com/farrukh90/infrastructure.git"
-// }
-// 	stage("Stage2"){
-//         ws("infrastructure/vpc/"){
-//             sh "terraform plan"
-//         }
-		
-// }
-// 	stage("Stage3"){
-// 		echo "hello"
-// }
-// 	stage("Stage4"){
-// 		echo "hello"
-// }
-// 	stage("Stage5"){
-// 		echo "hello"
-// 	}
-// }
-
-
 node {
 	stage("Stage1"){
-		git 'https://github.com/farrukh90/packer.git'
+		git "https://github.com/farrukh90/infrastructure.git"
 }
 	stage("Stage2"){
-		echo "hello"
+        ws("infrastructure/vpc/"){
+            sh "terraform plan"
+        }
+		
 }
 	stage("Stage3"){
 		echo "hello"
