@@ -43,7 +43,7 @@ node {
     stage("destroy"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
-            sh "make destroy"
+            sh "make d"
         }
 	}
     stage("Clean"){
