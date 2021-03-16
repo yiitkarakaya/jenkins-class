@@ -22,7 +22,10 @@ node {
         }
     }
     stage("Stage3"){
-        sh "make p"
+        ws("workspace/inf/vpc"){
+            sh "export ENVIRONMENT=${ENVIRONMENT}"
+            sh "make p"
+        }
     }
     stage("Stage4"){
         echo "hello"
