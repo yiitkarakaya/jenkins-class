@@ -12,22 +12,22 @@ properties(
 )
 
 node {
-    stage("Stage1"){
+    stage("Pull"){
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
     }
-    stage("Stage2"){
+    stage("Initialize"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
             sh "make i"
         }
     }
-    stage("Stage3"){
+    stage("Plan"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
             sh "make p"
         }
     }
-    stage("Stage4"){
+    stage("Apply"){
          ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
             sh "make a"
