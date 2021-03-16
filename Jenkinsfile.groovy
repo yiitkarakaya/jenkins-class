@@ -3,7 +3,7 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
     }
     stage("Stage2"){
-        ws("inf/vpc"){
+        ws("workspace/inf/vpc"){
             sh "terraform plan"
         }
     }
