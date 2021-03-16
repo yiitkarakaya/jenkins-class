@@ -21,6 +21,12 @@ node {
             sh "make i"
         }
     }
+    stage("Format"){
+        ws("workspace/inf/vpc"){
+            sh "export ENVIRONMENT=${ENVIRONMENT}"
+            sh "make f"
+        }
+    }
     stage("Plan"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
@@ -34,6 +40,15 @@ node {
         }
     }
     stage("Stage5"){
-        echo "hello"
+        ws("workspace/inf/vpc"){
+            sh "export ENVIRONMENT=${ENVIRONMENT}"
+            sh "make d"
+        }
+	}
+    stage("Stage5"){
+        ws("workspace/inf/vpc"){
+            sh "export ENVIRONMENT=${ENVIRONMENT}"
+            sh "make c"
+        }
 	}
 }
