@@ -1,6 +1,6 @@
 node {
     stage("Stage1"){
-        git 'https://github.com/farrukh90/infrastructure.git'
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
     }
     stage("Stage2"){
         echo "hello"
