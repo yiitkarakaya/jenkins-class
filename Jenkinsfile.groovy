@@ -24,7 +24,7 @@ node {
     stage("Stage3"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
-            sh "make p"
+            sh "make p a"
         }
     }
     stage("Stage4"){
