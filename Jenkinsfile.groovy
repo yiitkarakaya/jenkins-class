@@ -39,13 +39,13 @@ node {
             sh "make a"
         }
     }
-    stage("Stage5"){
+    stage("destroy"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
             sh "make d"
         }
 	}
-    stage("Stage5"){
+    stage("Clean"){
         ws("workspace/inf/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
             sh "make c"
