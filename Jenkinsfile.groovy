@@ -40,13 +40,6 @@ node {
             sh "make a"
         }
     }
-    stage("destroy"){
-        ws("workspace/infrastructura/vpc"){
-            sh "export ENVIRONMENT=${ENVIRONMENT}"
-            sh "make d"
-
-        }
-	}
     stage("Clean"){
         ws("workspace/infrastructura/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
