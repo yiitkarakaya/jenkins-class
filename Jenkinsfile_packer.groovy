@@ -15,6 +15,6 @@ node {
 	}
 	stage("Send Notification"){
 			echo "Hello"
-		}
 	}
 }
+
