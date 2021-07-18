@@ -1,8 +1,11 @@
 data "aws_ami" "example" {
-  executable_users = ["self"]
   most_recent      = true
-  name_regex       = "packer-centos7*"
   owners           = ["self"]
+
+  filter {
+    name   = "name"
+    values = ["packer-centos7*"]
+  }
 
   filter {
     name   = "root-device-type"
@@ -23,4 +26,8 @@ module "ec2_cluster" {
   ami                    = data.aws_ami.example.id
   instance_type          = "t2.micro"
   monitoring             = true
+}
+
+output "ami" {
+  value = data.aws_ami.example.id
 }
