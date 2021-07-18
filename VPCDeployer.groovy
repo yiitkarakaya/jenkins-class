@@ -25,7 +25,7 @@ node {
     }
     stage("Build AMI"){
         ws("jenkins-class-packer/pipelines/tools"){
-            sh "packer validate "
+            sh "packer validate golden_image.json"
        }
     }
 }
