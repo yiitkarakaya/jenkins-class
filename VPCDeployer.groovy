@@ -6,9 +6,6 @@ node {
         choice(choices: 
 			[
                 'dev', 
-                'qa', 
-                'stage', 
-                'prod'
             ], 
 		description: 'Which Environment should we deploy?', 
 		name: 'ENVIR')])])
