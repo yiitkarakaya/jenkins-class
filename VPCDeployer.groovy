@@ -1,20 +1,29 @@
 node {
-	stage("Stage1"){
+    properties(
+	[buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([cron('H/15 * * * *')]),
+    parameters(
+		[choice(choices: 
+			[
+                'dev', 
+                'qa', 
+                'stage', 
+                'prod'
+            ], 
+		description: 'Which Environment should we deploy?', 
+		name: 'ENVIRONMENT')])]
+)
+
+
+
+	stage("Clone a Repo"){
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class.git']]])
-}
-	stage("Stage2"){
+    }
+	stage("Build VPC"){
 		ws("${workspace}/AWS/VPC"){
-            
-            sh "ENVIRONMENT=dev   make tf-fmt  tf-init  tf-plan  tf-apply"
+            sh "ENVIRONMENT=${ENVIR}   make tf-fmt  tf-init  tf-plan  tf-apply"
         }
-}
-	stage("Stage3"){
+    }
+	stage("Send Notification"){
 		echo "hello"
-}
-	stage("Stage4"){
-		echo "hello"
-}
-	stage("Stage5"){
-		echo "hello"
-	}
+    }
 }
