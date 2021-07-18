@@ -21,13 +21,11 @@ node {
 		echo "hello"
     }
     stage("Clone Packer"){
-        ws("${workspace}"){
          checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class-packer.git']]])
-        }
     }
     stage("Build AMI"){
         ws("${workspace}/jenkins-class-packer/pipelines/"){
             sh "ls"
-        }
+       }
     }
 }
