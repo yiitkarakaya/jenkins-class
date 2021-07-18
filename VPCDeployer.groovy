@@ -4,8 +4,8 @@ node {
 }
 	stage("Stage2"){
 		ws("${workspace}/AWS/VPC"){
-            sh "pwd"
-            // sh "ENVIRONMENT=dev   make tf-fmt  tf-init  tf-plan  tf-apply"
+            
+            sh "ENVIRONMENT=dev   make tf-fmt  tf-init  tf-plan  tf-apply"
         }
 }
 	stage("Stage3"){
