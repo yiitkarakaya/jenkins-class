@@ -1,6 +1,7 @@
 node {
     properties(
 	[buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([cron('H/15 * * * *')]),
+    booleanParam(defaultValue: true, description: 'Apply/Destroy? Default Apply', name: 'TF_ACTION')],
     parameters(
 		[choice(choices: 
 			[
@@ -11,6 +12,8 @@ node {
             ], 
 		description: 'Which Environment should we deploy?', 
 		name: 'ENVIR')])])
+
+
 	stage("Clone a Repo"){
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class.git']]])
     }
