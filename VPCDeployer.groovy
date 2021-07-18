@@ -4,7 +4,7 @@ node {
 }
 	stage("Stage2"){
 		ws("AWS/VPC"){
-            sh "terraform init"
+            sh "ENVIRONMENT=dev   make tf-fmt  tf-init  tf-plan  tf-apply"
         }
 }
 	stage("Stage3"){
