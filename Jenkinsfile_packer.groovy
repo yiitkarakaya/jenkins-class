@@ -3,9 +3,11 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class.git']]])
 		sh "ls -la"
 	}
-	stage("Stage2"){
-		echo "hello"
-}
+	stage("Validate"){
+		ws("${workspace}/packer/pipelines/tools"){
+			sh "ls -la"
+		}
+	}
 	stage("Stage3"){
 		echo "hello"
 }
