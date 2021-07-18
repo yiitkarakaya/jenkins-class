@@ -3,7 +3,9 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class.git']]])
 }
 	stage("Stage2"){
-		echo "hello"
+		ws("AWS/VPC"){
+            sh "terraform init"
+        }
 }
 	stage("Stage3"){
 		echo "hello"
