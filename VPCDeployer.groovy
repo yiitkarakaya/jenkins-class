@@ -20,7 +20,7 @@ node {
     }
 	stage("Build VPC"){
 		ws("${workspace}/AWS/VPC"){
-            sh "ENVIRONMENT=${ENVIR}   make tf-fmt  tf-init  tf-plan  tf-apply"
+            sh "ENVIRONMENT=${ENVIR}   make tf-fmt  tf-init  tf-plan  tf-${TF_ACTION}"
         }
     }
 	stage("Send Notification"){
