@@ -12,8 +12,8 @@ node {
 	stage("Clone a Repo"){
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class.git']]])
     }
-	stage("Build VPC"){
-		ws("${workspace}/AWS/VPC"){
+	stage("Build EC2"){
+		ws("${workspace}/AWS/EC2"){
             sh "ENVIRONMENT=${ENVIR}   make tf-fmt  tf-init  tf-plan  tf-${TF_ACTION}"
         }
     }
