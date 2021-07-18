@@ -1,6 +1,7 @@
 node {
-	stage("Packer Validate"){
-		"sh ls -la"
+	stage("Clone a Repo"){
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class.git']]])
+		sh "ls -la"
 	}
 	stage("Stage2"){
 		echo "hello"
