@@ -24,8 +24,8 @@ node {
          checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/jenkins-class-packer.git']]])
     }
     stage("Build AMI"){
-        ws("jenkins-class-packer/pipelines/"){
-            sh "ls"
+        ws("jenkins-class-packer/pipelines/tools"){
+            sh "packer validate "
        }
     }
 }
