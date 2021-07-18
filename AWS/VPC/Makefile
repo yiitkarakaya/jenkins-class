@@ -12,7 +12,7 @@ tf-plan : tf-init
 tf-apply : tf-init
 	terraform apply $(ENVIRONMENT).tfplan
 tf-destroy : tf-init
-	terraform destroy -var-file=envs/$(ENVIRONMENT).tfvars
+	terraform destroy -var-file=envs/$(ENVIRONMENT).tfvars --auto-approve
 tf-validate : tf-init
 	terraform validate
 tf-fmt-check :
