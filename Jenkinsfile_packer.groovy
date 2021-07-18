@@ -1,7 +1,9 @@
 node {
 	stage("Stage1"){
-		git 'https://github.com/farrukh90/infrastructure.git'
-}
+		ws("${workspace}/packer/pipelines/tools"){
+			sh "pwd"
+		}
+	}
 	stage("Stage2"){
 		echo "hello"
 }
