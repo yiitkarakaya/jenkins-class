@@ -10,7 +10,7 @@ node {
                 'prod'
             ], 
 		description: 'Which Environment should we deploy?', 
-		name: 'ENVIRONMENT')])]
+		name: 'ENVIR')])]
 )
 
 
