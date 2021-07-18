@@ -8,13 +8,13 @@ node {
 			sh "packer validate golden_image.json"
 		}
 	}
-	stage("Stage3"){
-		echo "hello"
-}
-	stage("Stage4"){
-		echo "hello"
-}
-	stage("Stage5"){
-		echo "hello"
+	stage("Build Image"){
+		ws("${workspace}/packer/pipelines/tools"){
+			sh "packer build golden_image.json"
+		}
+	}
+	stage("Send Notification"){
+			echo "Hello"
+		}
 	}
 }
