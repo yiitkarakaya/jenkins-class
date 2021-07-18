@@ -17,4 +17,3 @@ node {
 			echo "Hello"
 	}
 }
-
