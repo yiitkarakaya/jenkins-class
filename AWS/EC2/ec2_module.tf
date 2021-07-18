@@ -24,6 +24,5 @@ module "ec2_cluster" {
 
   ami                    = data.aws_ami.example.id
   instance_type          = "t2.micro"
-  key_name               = "user1"
   monitoring             = true
 }
