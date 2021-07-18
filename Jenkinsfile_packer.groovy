@@ -1,8 +1,6 @@
 node {
 	stage("Packer Validate"){
-		ws("${workspace}/packer/pipelines/tools"){
-			sh "packer validate golden_image.json"
-		}
+		"sh ls -la"
 	}
 	stage("Stage2"){
 		echo "hello"
