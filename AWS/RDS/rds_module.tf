@@ -63,6 +63,20 @@ resource "aws_db_subnet_group" "db" {
 
   ]
 }
+resource "random_password" "password" {
+  length           = 30
+  special          = false
+  override_special = "_%@"
+}
+
+
+resource "aws_ssm_parameter" "foo" {
+  name  = "foo"
+  type  = "SecureString"
+  value = random_password.password.result
+}
+
+
 
 resource "aws_db_instance" "default" {
   identifier             = "dbname"
@@ -73,7 +87,7 @@ resource "aws_db_instance" "default" {
   instance_class         = "db.t2.micro"
   name                   = "mydb"
   username               = "foo"
-  password               = "foobarbaz"
+  password               = random_password.password.result
   publicly_accessible    = true
   db_subnet_group_name   = aws_db_subnet_group.db.name
   skip_final_snapshot    = true #used to delete the repo in the future without this you cant delete. There are bugs reported 
