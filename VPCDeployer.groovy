@@ -1,9 +1,9 @@
 node {
     properties(
 	[buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([cron('H/15 * * * *')]),
-    string(defaultValue: 'apply', description: 'Should I build or destroy? ', name: 'TF_ACTION', trim: true),
     parameters(
-		[choice(choices: 
+		[string(defaultValue: 'apply', description: 'Should I build or destroy? ', name: 'TF_ACTION', trim: true),
+        choice(choices: 
 			[
                 'dev', 
                 'qa', 
