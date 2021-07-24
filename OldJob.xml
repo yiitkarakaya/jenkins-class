@@ -12,7 +12,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;hello&quot;</command>
+      <command>echo &quot;hello from newjob&quot;</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
